@@ -1,16 +1,33 @@
 {
-  "name": "doh-booster-backend",
-  "version": "1.0.0",
-  "description": "Custom DoH routing backend for Railway",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
+  "log": {
+    "loglevel": "warning"
   },
-  "dependencies": {
-    "express": "^4.19.2",
-    "node-fetch": "^2.7.0"
-  },
-  "engines": {
-    "node": ">=18.x"
-  }
+  "inbounds": [
+    {
+      "port": 3000,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+            "level": 0,
+            "email": "efb-boost"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/b/efb-fkkyz5"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
 }
